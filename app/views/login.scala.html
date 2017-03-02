@@ -1,0 +1,14 @@
+@(loginForm: Form[LoginController.Login])
+
+@import helper._
+
+<h3>@Messages("signin.signin")</h3>
+
+@helper.form(action = routes.LoginController.auth()) {
+    <h1>Input login: </h1>
+    <p> login <input type="text" name="login"> </p>
+    <p> password <input type="password" name="password"> </p>
+    <p>
+        <button type="submit">Отправить</button>
+    </p>
+}
