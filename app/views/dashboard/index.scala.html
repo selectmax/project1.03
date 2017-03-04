@@ -1,32 +1,23 @@
-@*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
 @(myForm: Form[Order])
 
-@*
- * Call the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
-@main("Welcome to Play") {
+@main("Заказ") {
 
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-   @* @play20.welcome(message, style = "Java") *@
-    @helper.form(action = routes.HomeController.submit()) {
-    <h1> Input order: </h1>
-    <p> Что хотим? <input type="text" name="name"> </p>
-    <p> Сколько? <input type="text" name="count"> </p>
-    <select name="type">
-        <option value="kg">Килограмм</option>
-        <option value="t">Тонна</option>
-        <option value="m">Метр</option>
-    </select>
+    @helper.form(action = routes.DashboardController.submit()) {
+        <h1> Ввести заказ: </h1>
+        <p> Что хотим? <input type="text" name="name"> </p>
+        <p> Сколько? <input type="text" name="count"> </p>
+        <select name="type">
+            <option value="ct">Единиц</option>
+            <option value="kg">Килограмм</option>
+            <option value="t">Тонн</option>
+            <option value="m">Метр</option>
+            <option value="m2">Метр квадратный</option>
+            <option value="m3">Метр кубический</option>
+        </select>
         <p>
             <button type="submit">Отправить</button>
         </p>
     }
+
+    <a href="@routes.DashboardController.logout()">Выйти</a>
 }

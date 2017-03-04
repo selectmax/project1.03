@@ -3,12 +3,14 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /dashboard                           controllers.HomeController.index
-POST     /dashboard                           controllers.HomeController.submit
+GET     /dashboard                           controllers.DashboardController.index
+POST    /dashboard                           controllers.DashboardController.submit
+GET     /logout                              controllers.DashboardController.logout
+
 
 GET     /                                    controllers.LoginController.index
-POST     /                                    controllers.LoginController.auth
-
+POST    /login                               controllers.LoginController.auth
+POST    /register                            controllers.LoginController.register
 
 
 # Map static resources from the /public folder to the /assets URL path

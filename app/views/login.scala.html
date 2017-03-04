@@ -1,14 +1,15 @@
 @(loginForm: Form[LoginController.Login])
 
-@import helper._
 
-<h3>@Messages("signin.signin")</h3>
+@if(loginForm.hasGlobalErrors) {
+    <p class="error">
+        <span class="label label-danger">@loginForm.globalError.message</span>
+    </p>
+}
 
 @helper.form(action = routes.LoginController.auth()) {
-    <h1>Input login: </h1>
-    <p> login <input type="text" name="login"> </p>
-    <p> password <input type="password" name="password"> </p>
-    <p>
-        <button type="submit">Отправить</button>
-    </p>
+    <h1>Войти: </h1>
+    <p> Логин: <input type="text" name="login" > </p>
+    <p> Пароль: <input type="password" name="password"> </p>
+    <p><button type="submit">Отправить</button></p>
 }

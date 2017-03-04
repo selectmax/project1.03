@@ -2,23 +2,29 @@ package models;
 
 
 import com.avaje.ebean.Model;
+import play.data.validation.Constraints;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by max on 01.03.17.
  */
 @Entity
 @Table(name="orders")
-
 public class Order extends Model {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     public long id;
+    @Constraints.Required
     public String name;
+    @Constraints.Required
     public int count;
+    @Constraints.Required
     public String type;
+    public String client;
+    public Date time;
 
     public long getId() {
         return id;

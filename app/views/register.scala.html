@@ -1,0 +1,14 @@
+@(registerForm: Form[LoginController.Register])
+
+@if(registerForm.hasGlobalErrors) {
+  <p class="error">
+    <span class="label label-danger">@registerForm.globalError.message</span>
+  </p>
+}
+
+@helper.form(action = routes.LoginController.register()) {
+  <h1>Регистрация: </h1>
+  <p> Логин: <input type="text" name="login"> </p>
+  <p> Пароль: <input type="password" name="inputPassword"> </p>
+  <p><button type="submit">Зарегистрироваться</button></p>
+}
