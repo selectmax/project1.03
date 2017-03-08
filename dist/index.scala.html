@@ -1,0 +1,7 @@
+@(signupForm: Form[LoginController.Register], loginForm: Form[LoginController.Login])
+
+
+@main("Войти") {
+    @login(loginForm)
+    @views.html.register(signupForm)
+}
