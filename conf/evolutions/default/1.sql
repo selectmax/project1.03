@@ -8,7 +8,7 @@ create table orders (
   name                          varchar(255),
   count                         integer,
   type                          varchar(255),
-  client                        varchar(255),
+  clientid                      bigint not null,
   time                          datetime(6),
   constraint pk_orders primary key (id)
 );
@@ -21,8 +21,14 @@ create table users (
   constraint pk_users primary key (id)
 );
 
+alter table orders add constraint fk_orders_clientid foreign key (clientid) references users (id) on delete restrict on update restrict;
+create index ix_orders_clientid on orders (clientid);
+
 
 # --- !Downs
+
+alter table orders drop foreign key fk_orders_clientid;
+drop index ix_orders_clientid on orders;
 
 drop table if exists orders;
 

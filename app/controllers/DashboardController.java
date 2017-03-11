@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Order;
+import models.User;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
@@ -27,7 +28,11 @@ public class DashboardController extends Controller {
         if (orderForm.hasErrors()) {
             return badRequest(views.html.dashboard.index.render(orderForm));
         } else {
-            orderForm.get().client = session().get("login"); //Закидывает логин в orderForm
+            //1orderForm.get().client = session().get("login"); //1Закидывает логин в orderForm
+            String login = session().get("login");
+            //User user = User.findBylogin(login);
+            orderForm.get().client = User.findBylogin(login);
+
             orderForm.get().time = new Date(); //Закидывает инфу о дате в orderForm
             orderForm.get().save();
             for (Order or: Order.find.all()) {

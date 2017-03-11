@@ -23,7 +23,13 @@ public class Order extends Model {
     public int count;
     @Constraints.Required
     public String type;
-    public String client;
+
+    //1public String client;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ClientID", nullable = false)
+
+    public User client;
+
     public Date time;
 
     public long getId() {
@@ -64,5 +70,7 @@ public class Order extends Model {
     public String toString(){
         return name;
     }
+
+
 }
 
