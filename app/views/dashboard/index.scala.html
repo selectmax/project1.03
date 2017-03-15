@@ -1,4 +1,5 @@
-@(myForm: Form[Order])
+@(myForm: Form[Order], units: List[Unit1])
+
 
 @main("Заказ") {
 
@@ -6,6 +7,13 @@
         <h1> Ввести заказ: </h1>
         <p> Что хотим? <input type="text" name="name"> </p>
         <p> Сколько? <input type="text" name="count"> </p>
+
+        <select name="type">
+        @for(unit <- units) {
+            <option>@unit.getName</option>
+        }
+        </select>
+<!--
         <select name="type">
             <option value="ct">Единиц</option>
             <option value="kg">Килограмм</option>
@@ -13,7 +21,7 @@
             <option value="m">Метр</option>
             <option value="m2">Метр квадратный</option>
             <option value="m3">Метр кубический</option>
-        </select>
+        </select> -->
         <p>
             <button type="submit">Отправить</button>
         </p>

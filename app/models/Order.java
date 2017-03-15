@@ -24,10 +24,13 @@ public class Order extends Model {
     @Constraints.Required
     public String type;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "UnitID", nullable = false)
+    public Unit1 unit;
+
     //1public String client;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ClientID", nullable = false)
-
     public User client;
 
     public Date time;
