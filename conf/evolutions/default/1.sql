@@ -13,6 +13,12 @@ create table orders (
   constraint pk_orders primary key (id)
 );
 
+create table unit1 (
+  id                            bigint auto_increment not null,
+  name                          varchar(255),
+  constraint pk_unit1 primary key (id)
+);
+
 create table users (
   id                            bigint auto_increment not null,
   login                         varchar(255),
@@ -31,6 +37,8 @@ alter table orders drop foreign key fk_orders_clientid;
 drop index ix_orders_clientid on orders;
 
 drop table if exists orders;
+
+drop table if exists unit1;
 
 drop table if exists users;
 

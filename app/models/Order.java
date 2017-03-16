@@ -21,12 +21,12 @@ public class Order extends Model {
     public String name;
     @Constraints.Required
     public int count;
-    @Constraints.Required
-    public String type;
+   // @Constraints.Required
+    //@ManyToOne
+    public Unit1 unit;
 
     @ManyToOne
-    @JoinColumn(name = "UnitID")
-    public Unit1 unit;
+    public String type;
 
     //1public String client;
     @ManyToOne(fetch = FetchType.LAZY)

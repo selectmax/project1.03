@@ -6,11 +6,11 @@
         <h1> Ввести заказ: </h1>
         <p> Что хотим? <input type="text" name="name"> </p>
         <p> Сколько? <input type="text" name="count"> </p>
-      <select name="type">
+        <select name="type">
           @for(unit <- Unit1.all()) {
               <option>@unit.getName</option>
           }
-
+      </select>
               <!--  <select name="type">
             <option value="ct">Единиц</option>
             <option value="kg">Килограмм</option>
