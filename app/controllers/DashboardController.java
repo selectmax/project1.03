@@ -27,16 +27,15 @@ public class DashboardController extends Controller {
         Form<Order> orderForm = formFactory.form(Order.class).bindFromRequest(); //Закидывает данные со страницы в orderForm
         if (orderForm.hasErrors()) {
             return badRequest(views.html.dashboard.index.render(orderForm));
-        } else {
-            //1orderForm.get().client = session().get("login"); //1Закидывает логин в orderForm
+        }
+        else {
             String login = session().get("login");
-            //User user = User.findBylogin(login);
             Order order = orderForm.get();
             order.client = User.findBylogin(login);
-            order.time = new Date(); //Закидывает инфу о дате в orderForm
+            order.time = new Date();
             orderForm.get().save();
             for (Order or: Order.find.all()) {
-                System.out.println(or.toString()); //контроль в консоль
+                System.out.println(or.toString());
             }
             return redirect(routes.DashboardController.index());
         }

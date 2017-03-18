@@ -21,17 +21,12 @@ public class Order extends Model {
     public String name;
     @Constraints.Required
     public int count;
-   // @Constraints.Required
-    //@ManyToOne
-    public Unit1 unit;
 
     @ManyToOne
-    public String type;
+    public Long unitid;
 
-    //1public String client;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ClientID", nullable = false)
-
     public User client;
 
     public Date time;
@@ -58,14 +53,6 @@ public class Order extends Model {
 
     public void setCount(int count) {
         this.count = count;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public static Finder<Long, Order> find = new Finder<Long,Order>(Order.class);

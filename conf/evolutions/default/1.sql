@@ -7,7 +7,7 @@ create table orders (
   id                            bigint auto_increment not null,
   name                          varchar(255),
   count                         integer,
-  type                          varchar(255),
+  unitid                        bigint,
   clientid                      bigint not null,
   time                          datetime(6),
   constraint pk_orders primary key (id)

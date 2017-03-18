@@ -2,15 +2,15 @@
 
 @main("Заказ") {
 
-    @helper.form(action = routes.DashboardController.submit()) {
+    @helper.form(action = routes.DashboardController.submit()){
         <h1> Ввести заказ: </h1>
         <p> Что хотим? <input type="text" name="name"> </p>
-        <p> Сколько? <input type="text" name="count"> </p>
-        <select name="type">
+        <p> Сколько? <input type="text" name="count">
+        <select name="unitid">
           @for(unit <- Unit1.all()) {
-              <option>@unit.getName</option>
+              <option value=@unit.getId>@unit.getName</option>
           }
-      </select>
+      </select></p>
               <!--  <select name="type">
             <option value="ct">Единиц</option>
             <option value="kg">Килограмм</option>
