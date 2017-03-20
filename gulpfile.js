@@ -74,6 +74,7 @@ gulp.task('img', function () {
 gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function() { //в квадратных скобках - то, что выполнить раньше, чем 'watch'
     gulp.watch('sass/*.sass', ['sass']);
     gulp.watch('app/**/*.html', browserSync.reload);
+    gulp.watch('app/views/*.html', browserSync.reload);
     gulp.watch('app/**/*.js', browserSync.reload);
 });
 

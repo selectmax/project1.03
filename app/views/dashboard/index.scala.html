@@ -3,19 +3,21 @@
 @main("Заказ") {
 
     @helper.form(action = routes.DashboardController.submit()){
-        <h1> Ввести заказ: </h1>
-        <p> Что хотим? <input type="text" name="name"> </p>
-        <p> <i class="fa fa-building fa-spin"></i>Сколько? <input type="text" name="count">
-        <select name="unitid">
+
+        <div class="container-fluid mid">
+            <h2> Введите заказ: </h2>
+        <p> Что хотим? <input type="text" name="name" placeholder="Введите имя"> </p>
+            <p> &nbsp;&nbsp;&nbsp;Сколько? <input type="text" name="count" placeholder="Введите количество"> </p>
+        <p><select name="unitid">
           @for(unit <- Unit1.all()) {
               <option value=@unit.getId>@unit.getName</option>
           }
-      </select></p>
+        </select></p>
 
         <p>
             <button class="btn btn-success" type="submit">Отправить</button>
         </p>
+        </div>
     }
 
-    <a class="btn btn-warning" href="@routes.DashboardController.logout()">Выйти</a>
 }

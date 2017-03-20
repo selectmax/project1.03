@@ -1,6 +1,20 @@
-body {
-  font-size: 24px; }
+body{
+  background: #eeeeee;
+}
 
-body {
-  background-color: azure;
+.rowform{
+  height: 250px;
+  background: #eeeeee;
+}
+.mid{
+  border: 0px solid ghostwhite; /* рамка*/
+  text-align: center; /* центрирование по горизонтали */
+}
+.midvertical{
+  vertical-align: middle;  /* ..по вертикали */
+  border: 1px solid red;
+}
+
+.nazvanie{
+  width:325px;
 }

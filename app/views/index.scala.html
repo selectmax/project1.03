@@ -1,7 +1,22 @@
 @(signupForm: Form[LoginController.Register], loginForm: Form[LoginController.Login])
-
-
 @main("Войти") {
-    @login(loginForm)
-    @views.html.register(signupForm)
+    <div class="container-fluid">
+        <div class="rowform">
+            <div class="col-md-6 col-sm-6"> <div class="mid"><br>@login(loginForm) </div></div>
+            <div class="col-md-6 col-sm-6 hidden-xs">
+                <div class="mid"><p><i class="fa fa-arrow-up" aria-hidden="true"></i><br>Это пример навигационного меню. <br>Пригоден для узких экранов, в том числе для мобильных версий</p>
+                    <br><br><i class="fa fa-arrow-left" aria-hidden="true"></i>Призыв ко входу!<br>Здесь можно разместить картинку для призыва ко входу.<br>
+                Блок пропадает, при уменьшении ширины экрана до xs</div> </div>
+        </div>
+        <div class="rowform">
+            <div class="col-md-6 col-sm-6 hidden-xs"> <div class="mid"><br><br><br>Призыв к регистрации!<i class="fa fa-arrow-right" aria-hidden="true"></i><br>Здесь можно разместить картинку для призыва к регистрации<br>
+                Блок пропадает, при уменьшении ширины экрана до xs</div></div>
+            <div class="col-md-6 col-sm-6"> <div class="mid"><br>@views.html.register(signupForm)</div>
+            </div>
+        </div>
+    </div>
 }
+
+
+
+
